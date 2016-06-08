@@ -1,0 +1,57 @@
+<ion-view view-title="修行统计" >
+  <ion-content class='log'>
+    <tab-slide-box tab="0">
+      <div class="tsb-icons">
+        <div class="tsb-ic-wrp">
+          <ion-scroll direction="x" class="tsb-hscroll">
+          <a  href="javascript:;">日修</a>
+          <a  href="javascript:;">月修</a>
+          </ion-scroll>
+        </div>
+      </div>
+      <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+        <ion-slide>
+           <ion-nav-view name="tab-something-list">
+            <ion-view view-title="something-list">
+              <ion-content  ng-controller="PralogCtrl">
+                    <ion-list>
+                        <div href="#" class="item item-icon-left" ng-repeat="val in daylist">
+                            <i class="icon {{val.icon}} myicon"></i>
+                            <h3 class="logh3">{{val.title}}</h3>
+                            <span class="badge badge-energized">{{val.num|number:0}}{{val.danwei}}</span>
+                            <div class='child'>
+                              <div class=" item item-icon-left" ng-repeat="v in val.child">
+                                  <h4 class="logh4">{{v.title}}</h4>
+                                  <span class="badge badge-energized">{{v.num|number:0}}</span>
+                              </div>
+                            </div>
+                        </div>
+                      </ion-list>
+              </ion-content>
+            </ion-view>
+          </ion-nav-view>
+        </ion-slide>
+        <ion-slide>
+          <ion-nav-view name="tab-something-list">
+            <ion-view view-title="something-list">
+              <ion-content  ng-controller="MonthlogCtrl">
+                  <ion-scroll>
+                      <canvas   class="chart chart-line" chart-data="data"
+                          chart-labels="labels" chart-legend="true" chart-series="series" >
+                        </canvas>
+                  </ion-scroll>
+                    <h4 class="logh3" ng-if="msg" style="padding: 30px;">{{msg}}</h4>
+                    <div class="typebtn">
+                          <div class="button-bar">
+                              <a class="button button-small" ng-repeat="val in toplist" ng-click="changechart({{val.id}})">{{val.title}}</a>
+                          </div>
+                    </div>
+              </ion-content>
+            </ion-view>
+          </ion-nav-view>
+        </ion-slide>
+      </ion-slide-box>
+    </tab-slide-box>
+
+  </ion-content>
+</ion-view>

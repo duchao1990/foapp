@@ -1,0 +1,59 @@
+<ion-view view-title="个人中心" >
+  <ion-content has-subheader="false" class="has-header">
+
+      <div ng-if="isLogin" class="userdiv">
+
+                <img  class="userlogo" src="{{imgurl}}" />
+
+              <button ng-disabled="qian" class="button button-clear " ng-click="qiandao()" style="float:right;margin-right: 30px;">
+                <i class="icon ion-happy"></i> <span class="desc">{{qiantitle}}</span>
+              </button>
+              <div class="username" style="float:right;margin-top: 10px;">
+              {{nickname}}
+
+                <button ng-if="unames" class="button button-clear" ng-click="edituname()">
+                  <i class="icon ion-compose"></i>
+                </button>
+              </div>
+      </div>
+      <div ng-if="!isLogin" class="nouser">
+            <center><button class="button button-energized  mybtn" ng-click="goLogin()">点击登陆</button></center>
+      </div>
+      <div class="list" ng-if='isLogin'>
+        <a ng-if="iosVery"  href="#/tab/integral" class="item item-icon-left item-icon-right myitem">
+          <i class="icon ion-card myicon"></i>
+          功德中心
+          <i class="icon ion-ios-arrow-right myicon"></i>
+        </a>
+        <a href="#/tab/myuan"  class="item item-icon-left item-icon-right myitem">
+          <i class="icon ion-ios-heart-outline myicon"></i>
+          我的愿望
+          <i class="icon ion-ios-arrow-right myicon"></i>
+        </a>
+
+        <a href="#/tab/workers"  class="item item-icon-left  item-icon-right myitem">
+          <i class="icon ion-ios-list-outline myicon"></i>
+          义工助手
+          <i class="icon ion-ios-arrow-right myicon"></i>
+        </a>
+        <a href="#/tab/advice"  class="item item-icon-left item-icon-right myitem" >
+          <i class="icon ion-ios-compose-outline myicon"></i>
+          意见反馈
+          <i class="icon ion-ios-arrow-right myicon"></i>
+        </a>
+
+        <a ng-if="isLogin"  class="item item-icon-left myitem" ng-click="LoginOut()">
+        <i class="icon ion-ios-paperplane-outline myicon"></i>
+          退出登录
+        </a>
+      </div>
+      <div class="version" ng-click="copyqq()">
+        版本号: {{appVersion}}
+        <br/>
+        官方QQ群: 533761766
+        <br/>
+        (点击可复制)
+      </div>
+  </ion-content>
+
+</ion-view>

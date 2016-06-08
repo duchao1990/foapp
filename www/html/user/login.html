@@ -1,0 +1,33 @@
+<ion-view view-title="登陆" class="new-login" style='padding-top: 30px;'>
+    <div class="user-img">
+      <img src="image/m-user.png"/>
+    </div>
+    <div class="list list-inset no-back" style="margin-bottom: 0;">
+      <div id="mcbg" class="list">
+      <form name="Login" ng-controller="UserCtrl" ng-submit="LoginForm()">
+          <label class="item item-input">
+            <i class="icon ion-person placeholder-icon fff login-font"></i>
+            <input type="text" placeholder="请输入手机号" required ng-model='Login.mobile'  ng-pattern='/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/' class="fff">
+          </label>
+          <label class="item item-input">
+            <i class="icon ion-ios-locked placeholder-icon fff login-font"></i>
+            <input type="password" placeholder="请输入密码" required ng-minlength='6'  ng-model='Login.pwd' class="fff">
+          </label>
+          <button type="submit" class="button button-energized  submit sub-top fff" ng-disabled="Login.$invalid">登陆</button>
+      </form>
+      <div style="margin:10px 0;text-align: center;" ng-if="iosVery">
+        <span class="fff desc">-------------第三方授权登陆-------------</span>
+        <div class="button-bar bar-stable" style="margin-bottom: 20px;">
+          <a class="button button-clear" ng-click="Tlogin('wb')"><i class="assertive icon iconfont icon-weibo1193419easyiconnet"></i></a>
+          <a class="button button-clear" ng-click="Tlogin('qq')"><i class="positive icon iconfont icon-qq1193403easyiconnet"></i></a>
+          <a class="button button-clear" ng-click="Tlogin('wx')"><i class="balanced icon iconfont icon-wechat1193418easyiconnet"></i></a>
+        </div>
+      </div>
+      <div style="margin:10px 0;text-align: center;">
+        <a class="fl fff" href="#/tab/mobile/fot">忘记密码?</a>
+        <a class="fr fff" href="#/tab/mobile/reg">我要注册</a>
+      </div>
+    </div>
+    </div>
+</ion-view>
+
